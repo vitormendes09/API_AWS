@@ -28,22 +28,33 @@ app.get('/user', async (req, res) => {
   res.status(200).json(users);
 }); 
 
+app.put('/user/:id', async (req, res) => {
+  
+  await prisma.user.update({
+    where: { id: req.params.id
 
-app.put('/user/:id', async (req, res) => { 
-
-    await prisma.user.update({
-      where: {
-        id: req.body.id,
+     },
+    data: {
+      name: req.body.name,
+      email: req.body.email,
       },
-      data: {
-        name: req.body.name,
-        email: req.body.email,
-      },
-      
   });
 
-  res.status(200).json(user);
+  res.status(201).json(req.body);
 });
+
+
+app.delete('/user/:id', async (req, res) => {
+
+  await prisma.user.delete({
+    where: { 
+      id: req.params.id 
+    }});
+
+  res.status(200).json({ message: 'User deleted successfully' });
+});
+
+
 app.listen(3000, () => {        
     console.log('Server is running on http://localhost:3000');
     }); 
