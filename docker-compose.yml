@@ -1,3 +1,5 @@
+version: '3.9'
+
 services:
   postgres:
     image: bitnami/postgresql:latest
@@ -7,26 +9,34 @@ services:
       POSTGRES_DB: users
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin123
+      POSTGRESQL_PASSWORD_ENCRYPTION_METHOD: md5
     volumes:
       - polls_pg_data:/bitnami/postgresql
     networks:
       - iff
 
-  redis:
-    image: bitnami/redis:latest
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
+  api:
+    build: .
     ports:
-      - "6379:6379"
-    volumes:
-      - polls_redis_data:/bitnami/redis/data
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      - DB_HOST=postgres
+      - DB_DATABASE=users
+      - DB_USERNAME=admin
+      - DB_PASSWORD=admin123
+      - DB_PORT=5432
     networks:
       - iff
 
-volumes:
-  polls_pg_data:
-  polls_redis_data:
+    command: ["./wait-for-it.sh", "postgres:5432", "--", "npm", "run", "dev"]
 
 networks:
   iff:
-    external: true
+
+
+    
+
+volumes:
+  polls_pg_data:
