@@ -1,12 +1,12 @@
 import {DataTypes, Model} from 'sequelize'
-import {sequelize} from '../../src/database.js'
+import{sequelize} from '../database'
 
 export class User extends Model{
     public id!: number;
     public nome!: string;
     public email!: string;
 }
-
+ 
 User.init(
     {
         id: {
@@ -24,10 +24,10 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false
         }
-        
+
     },
     {
         sequelize,
         tableName: 'user'
     }
-)
+);

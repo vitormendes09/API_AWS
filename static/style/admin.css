@@ -1,0 +1,59 @@
+/* No Posts */
+.no-posts__container {
+  width: 100%;
+  max-width: 1168px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.no-posts__image {
+  max-width: 300px;
+}
+
+.no-posts__image > img {
+  width: 100%;
+}
+
+.no-posts__message {
+  color: #fff;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.no-posts__button {
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  background: #00a7ed;
+  width: 100%;
+  padding: 24px;
+  cursor: pointer;
+  max-width: 328px;
+  margin-top: 48px;
+  font-family: "Inter", sans-serif;
+  color: #04071c;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+/* Desktop Styles */
+@media screen and (min-width: 540px) {
+  .no-posts__message {
+    font-size: 35px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .no-posts__message {
+    max-width: 576px;
+    font-size: 40px;
+  }
+}
+/* End No Posts */

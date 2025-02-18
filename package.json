@@ -1,35 +1,29 @@
 {
   "name": "api_aws",
   "version": "1.0.0",
-  "type": "module",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon",
-    "build": "tsc",
-    "start": "node dist/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:docker:down": "docker-compose  -f docker-compose.yml   down",
+    "dev:docker:up": "docker-compose  -f docker-compose.yml   up -d --build",
+    "dev:docker:start": "pnpm run dev:docker:down && pnpm run dev:docker:up   && sleep 1",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@types/sequelize": "^4.28.20",
-    "cors": "^2.8.5",
+    "body-parser": "^1.20.3",
     "dotenv": "^16.4.7",
+    "dotenv-cli": "^7.4.4",
+    "ejs": "^3.1.10",
     "express": "^4.21.2",
-    "pg": "^8.13.2",
+    "express-prom-bundle": "^6.6.0",
+    "pg": "^8.13.3",
+    "pg-hstore": "^2.3.4",
+    "postcss": "^8.4.24",
+    "prom-client": "^14.2.0",
     "sequelize": "^6.37.5"
-  },
-  "devDependencies": {
-    "@tsconfig/node-lts": "^22.0.1",
-    "@types/cors": "^2.8.17",
-    "@types/express": "^5.0.0",
-    "@types/node": "^22.13.1",
-    "@types/pg": "^8.11.11",
-    "nodemon": "^3.1.9",
-    "ts-node": "^10.9.2",
-    "tslib": "^2.8.1",
-    "typescript": "^5.7.3"
   }
 }

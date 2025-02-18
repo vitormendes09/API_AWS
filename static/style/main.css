@@ -1,0 +1,137 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  background-color: #f5f1e3;
+  font-family: "Inter", sans-serif;
+  color: #333;
+}
+
+.header {
+  width: 100%;
+  background: #2a6041;
+  border-bottom: 2px solid #c2a16c;
+  padding: 25px 15px;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1168px;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 100%;
+  max-width: 210px;
+}
+
+.header__button {
+  border-radius: 8px;
+  border: 1px solid #3a774f;
+  background: #c2a16c;
+  width: 100%;
+  padding: 16px 24px;
+  cursor: pointer;
+  max-width: 188px;
+  margin-top: 20px;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.header__button:hover {
+  background: #a27c4a;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  background: #2a6041;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1168px;
+  margin: 0 auto;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.medicine-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.medicine-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #c2a16c;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+
+@media screen and (min-width: 540px) {
+  .header {
+    max-height: 99px;
+  }
+  .header__container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .header__button {
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .footer__container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .footer__links {
+    flex-direction: row;
+    column-gap: 5px;
+  }
+}

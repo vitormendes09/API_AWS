@@ -1,0 +1,26 @@
+#version: '3.9'
+
+services:
+  
+  app:
+    
+    ports:
+      - ${APP_PORT}:3001
+    networks:
+      - aws-network
+    container_name: aws_app
+    environment:
+          - DB_USERNAME=${DB_USERNAME}
+          - DB_PASSWORD=${DB_PASSWORD}
+          - DB_DATABASE=${DB_DATABASE}
+          - DB_HOST=aws_psql
+    
+    links:   #Novo atributo incluso
+      - aws_psql
+    depends_on:
+      - aws_psql
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+ 

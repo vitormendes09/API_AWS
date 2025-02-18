@@ -16,7 +16,6 @@ services:
       - pg-data:/var/lib/postgresql/data
     networks:
       - aws-network
-  
   app:
     
     ports:
@@ -38,10 +37,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-     
+
   pgadmin4:
     image: dpage/pgadmin4
-    container_name: ${PGADMIN_CONT}
+    container_name: aws_pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_USER}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
@@ -60,4 +59,4 @@ networks:
   aws-network:
     driver: bridge
 volumes:
-  pg-data: 
+  pg-data:
