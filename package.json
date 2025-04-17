@@ -25,5 +25,8 @@
     "postcss": "^8.4.24",
     "prom-client": "^14.2.0",
     "sequelize": "^6.37.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1"
   }
 }
